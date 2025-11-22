@@ -1,41 +1,59 @@
-# plnr 2022.6.8
+# Version 2025.11.22
+
+- Replacing `purrr::cross` with `tidyr::expand_grid()`
+
+# Version 2025.3.19
+
+- Comprehensive improvements to roxygen2 documentation across all R files:
+  - Enhanced Plan class documentation with better structure and clearer explanations
+  - Improved method documentation with detailed parameter descriptions and examples
+  - Added comprehensive documentation for internal functions
+  - Enhanced documentation for utility functions (is_run_directly, get_anything, expand_list)
+  - Added detailed examples and usage patterns for all functions
+  - Improved clarity and consistency across all documentation
+
+# Version 2024.1.18
+
+- plan$run_all_parallel public method created.
+
+# Version 2022.6.8
 
 - plan$set_use_foreach public method created
 
-# plnr 2022.6.7
+# Version 2022.6.7
 
 - CRAN submission
 - Additional documentation
 - Moving some plan public fields into private
 
-# plnr 2022.5.27
+# Version 2022.5.27
 
 - Including new vignette explaining how to add analyses to a plan.
 
-# plnr 2022.4.6
+# Version 2022.4.6
 
 - Inclusion of hash functions in get_data.
 
-# plnr 2021.6.9
+# Version 2021.6.9
 
 - Inclusion of easy_split.
 
-# plnr 2020.5.11
+# Version 2020.5.11
 
 - fn_name can now take package::function_name arguments.
 
-# plnr 2020.5.4
+# Version 2020.5.4
 
 - is_run_directly function created, allowing the user to see if their code is being run directly or from within a function.
 
-# plnr 2020.4.3
+# Version 2020.4.3
 
 - set_opts function created, allowing for force_verbose to be set package wide.
 
-# plnr 2020.2.20
+# Version 2020.2.20
 
 - create_rmarkdown skeleton created.
 
-# plnr 2020.1.28
+# Version 2020.1.28
 
 - parallel_possible variable when initializing new Plan.

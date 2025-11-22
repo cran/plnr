@@ -1,4 +1,4 @@
-## ---- collapse=FALSE----------------------------------------------------------
+## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
 library(magrittr)
@@ -60,7 +60,7 @@ q <- p$run_all()
 q[[1]]
 q[[2]]
 
-## ---- collapse=FALSE----------------------------------------------------------
+## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
 library(magrittr)
@@ -117,7 +117,7 @@ p$run_one(2)
 p$run_one(3)
 p$run_one(4)
 
-## ---- collapse=FALSE----------------------------------------------------------
+## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
 library(magrittr)
