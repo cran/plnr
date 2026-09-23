@@ -1,7 +1,6 @@
 ## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
-library(magrittr)
 
 # We begin by defining a new plan
 p <- plnr::Plan$new()
@@ -20,8 +19,8 @@ p$add_data(
 
 p$get_data()
 
-location_codes <- p$get_data()$covid19_cases$location_code %>%
-  unique() %>% 
+location_codes <- p$get_data()$covid19_cases$location_code |>
+  unique() |> 
   print()
 
 p$add_argset_from_list(
@@ -63,7 +62,6 @@ q[[2]]
 ## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
-library(magrittr)
 
 # We begin by defining a new plan
 p <- plnr::Plan$new()
@@ -120,7 +118,6 @@ p$run_one(4)
 ## ----collapse=FALSE-----------------------------------------------------------
 library(ggplot2)
 library(data.table)
-library(magrittr)
 
 # We begin by defining a new plan
 p <- plnr::Plan$new()

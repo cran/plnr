@@ -7,14 +7,39 @@
 test_action_fn(data, argset)
 }
 \arguments{
-\item{data}{A named list containing the datasets (unused in this example)}
+\item{data}{A named list that holds the datasets. This example does not use
+it.}
 
-\item{argset}{A named list containing the arguments (unused in this example)}
+\item{argset}{A named list that holds the arguments. This example does not
+use it.}
 }
 \value{
 The integer 1
 }
 \description{
-A simple test function that always returns 1, useful for testing
-the Plan framework's functionality.
+\code{test_action_fn()} always returns 1. Use it to test the \code{Plan} framework.
 }
+\examples{
+# Called directly, it ignores both arguments and returns 1
+test_action_fn(data = list(), argset = list())
+
+# Its intended use is as a placeholder action function inside a plan
+p <- plnr::Plan$new()
+p$add_data(
+  name = "deaths",
+  direct = data.table::data.table(deaths = 1:4, year = 2001:2004)
+)
+p$add_analysis(name = "analysis_1", fn_name = "plnr::test_action_fn")
+p$run_one("analysis_1")
+}
+\seealso{
+\code{vignette("plnr")} for the \code{data}/\code{argset} contract. An action
+function MUST accept at least the supplied data and argset values. It MAY
+take further arguments. A directly supplied \code{fn} receives the argset
+positionally, so its second formal need not be named \code{argset}.
+
+Other example and test functions:
+\code{\link[=example_action_fn]{example_action_fn()}},
+\code{\link[=example_data_fn_nor_covid19_cases_by_time_location]{example_data_fn_nor_covid19_cases_by_time_location()}}
+}
+\concept{example and test functions}

@@ -1,11 +1,12 @@
 #' Covid-19 data for PCR-confirmed cases in Norway (nation and county)
 #'
-#' This data comes from the Norwegian Surveillance System for Communicable Diseases (MSIS).
-#' The date corresponds to when the PCR-test was taken.
+#' The Norwegian Surveillance System for Communicable Diseases (MSIS) supplies
+#' this data. The date corresponds to when the PCR-test was taken.
 #'
-#' The raw number of cases and cases per 100.000 population are recorded.
+#' The data records the raw number of cases, and the number of cases per
+#' 100.000 population.
 #'
-#' This data was extracted on 2022-05-04.
+#' The extraction date of this data is 2022-05-04.
 #'
 #' @format A csfmt_rts_data_v1 with 11028 rows and 18 variables:
 #' \describe{
@@ -32,8 +33,23 @@
 
 
 #' An example data_fn that returns a data set
+#' @examples
+#' # A data function takes no arguments and returns one data set
+#' d <- example_data_fn_nor_covid19_cases_by_time_location()
+#' dim(d)
+#'
+#' # Its intended use is as an `fn_name` passed to Plan$add_data()
+#' p <- plnr::Plan$new()
+#' p$add_data(
+#'   name = "covid19_cases",
+#'   fn_name = "plnr::example_data_fn_nor_covid19_cases_by_time_location"
+#' )
+#' names(p$get_data())
+#' @family example and test functions
+#' @seealso `vignette("adding_analyses")`. It defines the same kind of
+#' zero-argument `data_fn`. It then attaches that `data_fn` to a plan with
+#' `fn_name`.
 #' @export
-example_data_fn_nor_covid19_cases_by_time_location <- function(){
+example_data_fn_nor_covid19_cases_by_time_location <- function() {
   plnr::nor_covid19_cases_by_time_location
 }
-

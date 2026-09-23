@@ -1,9 +1,16 @@
 Package: plnr
 Title: A Framework for Planning and Executing Analyses
-Version: 2025.11.22
-Authors@R: c(
-  person(c("Richard","Aubrey"), "White", email = "hello@rwhite.no", role = c("aut", "cre"),comment = c(ORCID = "0000-0002-6747-1726"))
-  )
+Version: 2026.9.23
+Authors@R: 
+    c(
+      person(
+        given = c("Richard", "Aubrey"),
+        family = "White",
+        email = "hello@rwhite.no",
+        role = c("aut", "cre", "cph"),
+        comment = c(ORCID = "0000-0002-6747-1726")
+      )
+    )
 Description: A comprehensive framework for planning and executing analyses in R. 
     It provides a structured approach to running the same function multiple times 
     with different arguments, executing multiple functions on the same datasets, 
@@ -18,18 +25,18 @@ License: MIT + file LICENSE
 URL: https://www.rwhite.no/plnr/, https://github.com/raubreywhite/plnr
 BugReports: https://github.com/raubreywhite/plnr/issues
 Encoding: UTF-8
+Config/Needs/website: raubreywhite/rwtemplate
 LazyData: true
 Depends: R (>= 4.1.0)
 Imports: data.table, digest, fs, foreach, glue, pbmcapply, purrr, R6,
         stats, tidyr, usethis, utils, uuid
-Suggests: testthat, knitr, rmarkdown, progressr, ggplot2, readxl,
-        magrittr
-RoxygenNote: 7.3.3
+Suggests: testthat, knitr, rmarkdown, progressr, ggplot2, readxl
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0
 NeedsCompilation: no
-Packaged: 2025-11-22 20:54:03 UTC; raw996
-Author: Richard Aubrey White [aut, cre] (ORCID:
+Packaged: 2026-09-23 17:52:23 UTC; RIWH
+Author: Richard Aubrey White [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0002-6747-1726>)
 Maintainer: Richard Aubrey White <hello@rwhite.no>
 Repository: CRAN
-Date/Publication: 2025-11-22 21:10:02 UTC
+Date/Publication: 2026-09-23 19:10:02 UTC

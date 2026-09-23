@@ -48,8 +48,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +61,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -343,9 +344,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p><code>plnr</code> is a framework for planning and executing analyses
-in R. It’s designed to help you organize and run multiple analyses
-efficiently, whether you’re applying the same function with different
-arguments or running multiple different functions on your data.</p>
+in R. Use it to organize and run multiple analyses. It covers two cases:
+the same function applied with different arguments, and multiple
+different functions applied to your data.</p>
 <div id="core-concepts" class="section level2">
 <h2>Core Concepts</h2>
 <div id="broad-technical-terms" class="section level3">
@@ -447,10 +448,9 @@ graphs).</td>
 </div>
 <div id="basic-usage" class="section level2">
 <h2>Basic Usage</h2>
-<p>Let’s start with a simple example that demonstrates the core
-concepts:</p>
+<p>This simple example shows the core concepts:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(plnr)</span></code></pre></div>
-<pre><code>## plnr 2025.11.22
+<pre><code>## plnr 2026.9.23
 ## https://www.rwhite.no/plnr/</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
@@ -490,19 +490,22 @@ concepts:</p>
 <span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a></span>
 <span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a><span class="co"># Run analyses</span></span>
 <span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">run_one</span>(<span class="st">&quot;fig_1_2002&quot;</span>)</span></code></pre></div>
-<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="advanced-features" class="section level2">
 <h2>Advanced Features</h2>
 <div id="data-management" class="section level3">
 <h3>Data Management</h3>
-<p>The framework ensures efficient data management by: - Loading data
-once and reusing across analyses - Separating data cleaning from
-analysis - Providing hash-based tracking of data changes</p>
+<p>The framework makes data management efficient in three ways:</p>
+<ul>
+<li>It loads data once and reuses it across analyses.</li>
+<li>It keeps data cleaning separate from analysis.</li>
+<li>It tracks data changes with a hash.</li>
+</ul>
 </div>
 <div id="debugging-tools" class="section level3">
 <h3>Debugging Tools</h3>
-<p><code>plnr</code> includes several tools to help with development and
+<p><code>plnr</code> includes several tools for development and
 debugging:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Access data directly</span></span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">get_data</span>()</span></code></pre></div>
@@ -516,11 +519,11 @@ debugging:</p>
 ## 
 ## $hash
 ## $hash$current
-## [1] &quot;aa2296ddc2b519c9c2a3d1a39471ac9e&quot;
+## [1] &quot;cec793cabd6a9a5511328896c6484c03&quot;
 ## 
 ## $hash$current_elements
 ## $hash$current_elements$deaths
-## [1] &quot;82519debaef80054a7b2ed512f8dfb94&quot;</code></pre>
+## [1] &quot;98d1244c379870be0c043ad5a6e9f743&quot;</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Access specific argset</span></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">get_argset</span>(<span class="st">&quot;fig_1_2002&quot;</span>)</span></code></pre></div>
 <pre><code>## $year_max
@@ -549,7 +552,7 @@ debugging:</p>
 </div>
 <div id="function-naming" class="section level3">
 <h3>Function Naming</h3>
-<p>When adding analyses, you can use either <code>fn_name</code> or
+<p>When you add an analysis, you can use either <code>fn_name</code> or
 <code>fn</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Using fn_name (recommended)</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">add_analysis</span>(</span>
@@ -584,13 +587,13 @@ debugging:</p>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>p1<span class="sc">$</span><span class="fu">add_data</span>(<span class="at">direct =</span> <span class="fu">data.table</span>(<span class="at">deaths=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">year=</span><span class="dv">2001</span><span class="sc">:</span><span class="dv">2005</span>), <span class="at">name =</span> <span class="st">&quot;deaths3&quot;</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>p1<span class="sc">$</span><span class="fu">get_data</span>()<span class="sc">$</span>hash<span class="sc">$</span>current_elements</span></code></pre></div>
 <pre><code>## $deaths
-## [1] &quot;82519debaef80054a7b2ed512f8dfb94&quot;
+## [1] &quot;98d1244c379870be0c043ad5a6e9f743&quot;
 ## 
 ## $deaths2
-## [1] &quot;82519debaef80054a7b2ed512f8dfb94&quot;
+## [1] &quot;98d1244c379870be0c043ad5a6e9f743&quot;
 ## 
 ## $deaths3
-## [1] &quot;d740b5c163d702dde31061bcd9e00716&quot;</code></pre>
+## [1] &quot;e2c9e7668db24508e3a89d196d994dd6&quot;</code></pre>
 </div>
 </div>
 <div id="best-practices" class="section level2">
@@ -598,28 +601,28 @@ debugging:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Data Organization</strong>
 <ul>
-<li>Keep data cleaning separate from analysis</li>
-<li>Use meaningful names for datasets</li>
-<li>Document data structure and assumptions</li>
+<li>Keep data cleaning separate from analysis.</li>
+<li>Use meaningful names for datasets.</li>
+<li>Document the data structure and the assumptions.</li>
 </ul></li>
 <li><strong>Analysis Functions</strong>
 <ul>
-<li>Always accept <code>data</code> and <code>argset</code>
-parameters</li>
-<li>Use <code>is_run_directly()</code> for development</li>
-<li>Keep functions focused and single-purpose</li>
+<li>An action function MUST accept <code>data</code> and
+<code>argset</code> parameters.</li>
+<li>Use <code>is_run_directly()</code> during development.</li>
+<li>Keep each function focused on one purpose.</li>
 </ul></li>
 <li><strong>Plan Structure</strong>
 <ul>
-<li>Use meaningful names for argsets and analyses</li>
-<li>Group related analyses together</li>
-<li>Document plan structure and dependencies</li>
+<li>Use meaningful names for argsets and analyses.</li>
+<li>Group related analyses together.</li>
+<li>Document the plan structure and its dependencies.</li>
 </ul></li>
 <li><strong>Development Workflow</strong>
 <ul>
-<li>Start with small examples</li>
-<li>Use debugging tools during development</li>
-<li>Test analyses individually before running full plan</li>
+<li>Start with small examples.</li>
+<li>Use the debugging tools during development.</li>
+<li>Test each analysis on its own, before you run the full plan.</li>
 </ul></li>
 </ol>
 </div>
@@ -627,11 +630,11 @@ parameters</li>
 <h2>Next Steps</h2>
 <ol style="list-style-type: decimal">
 <li>Read the <a href="https://www.rwhite.no/plnr/articles/adding_analyses.html">Adding
-Analyses</a> vignette for more detailed examples</li>
-<li>Check out the <a href="https://www.rwhite.no/plnr/">package
-website</a> for additional resources</li>
-<li>Explore the function documentation with
-<code>help(package=&quot;plnr&quot;)</code></li>
+Analyses</a> vignette for more detailed examples.</li>
+<li>Visit the <a href="https://www.rwhite.no/plnr/">package website</a>
+for additional resources.</li>
+<li>Read the function documentation with
+<code>help(package=&quot;plnr&quot;)</code>.</li>
 </ol>
 </div>
 </div>
